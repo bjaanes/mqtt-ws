@@ -174,8 +174,9 @@ function run(config) {
             ws.terminate();
         });
 
-        mqtt.on('message', function(topic, message, packet) {
-            ws.send(Buffer.concat([new Buffer(topic + "|", "utf16le"), new Buffer(message)]), {binary: true, mask: false});
+        mqtt.on('message', function(topic, message) {
+            var messageAsString = new Buffer(message).toString('utf8');
+            ws.send(messageAsString);
         });
     });
 }
