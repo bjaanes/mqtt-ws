@@ -4,4 +4,4 @@
  * MIT Licensed
  */
 
-module.exports = require('./lib/mqttws');
+module.exports = require('./lib/mqtt-ws');
